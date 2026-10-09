@@ -1,7 +1,10 @@
-# City Traffic Simulation
+# Bridge Traffic Simulator
 
 A multi-threaded bridge traffic simulation with three control modes: Police Officers, Traffic Lights, and Carnage.  
-Built with C, POSIX threads, and SDL2 graphics.
+Built with C, POSIX threads, and SDL2 graphics as an Operating Systems course project at TEC.
+
+Every vehicle is its own thread competing for bridge segments, so the project is mainly an exercise in
+**synchronization**: mutexes, condition variables and fair turn-taking without deadlock or starvation.
 
 ## Features
 
@@ -45,6 +48,15 @@ sudo pacman -S gcc make sdl2 sdl2_ttf
 ```
 
 ## Compilation
+
+With CMake:
+
+```bash
+cmake -B build && cmake --build build
+./build/bridge_simulation
+```
+
+Or directly with gcc:
 
 ```bash
 gcc -o bridge_simulation main.c bridge.c traffic_generator.c gui.c vehicle.c config.c -lpthread -lSDL2 -lSDL2_ttf -lm
@@ -97,8 +109,8 @@ west_speed_variation=2
 ## Project Structure
 
 ```
-bridge-simulation/
-├── Makefile
+bridge-traffic-simulator/
+├── CMakeLists.txt
 ├── config.txt
 ├── main.c
 ├── bridge.c
@@ -126,10 +138,9 @@ The project uses POSIX synchronization primitives:
 
 ## License
 
-MIT License
+[MIT](LICENSE)
 
-## Author
+## Authors
 
-**Diego Zamora Bustos**
-- GitHub: [@dizabu](https://github.com/dizabu)
-- David Zamora Barrantes
+- **Diego Zamora Bustos**: [@Dizabu](https://github.com/Dizabu)
+- **David Zamora Barrantes**

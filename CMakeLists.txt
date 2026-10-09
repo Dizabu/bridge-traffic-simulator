@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(untitled C)
+project(bridge_simulation C)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -11,7 +11,7 @@ include_directories(
         ${SDL2_TTF_INCLUDE_DIRS}
 )
 
-add_executable(untitled
+add_executable(bridge_simulation
         main.c
         bridge.c
         vehicle.c
@@ -20,7 +20,7 @@ add_executable(untitled
         gui.c
 )
 
-target_link_libraries(untitled
+target_link_libraries(bridge_simulation
         ${SDL2_LIBRARIES}
         SDL2_ttf
         pthread
